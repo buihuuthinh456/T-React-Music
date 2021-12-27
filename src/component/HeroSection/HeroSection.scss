@@ -1,0 +1,21 @@
+.swiper-container{
+    max-height: 500px;
+    width:100%; 
+    // max-width: 1000px;
+}
+// .swiper-pagination{
+
+// }
+.swiper-pagination-bullet{
+    background: rgb(73, 206, 247);
+}
+.swiper-slide{
+    width: 100% !important;
+    img{
+        max-height: 500px;
+        background-position:center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width:100%;
+    }
+}

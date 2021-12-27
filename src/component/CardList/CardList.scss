@@ -1,0 +1,27 @@
+@use '../../scss/breakpoint' as *;
+
+.card-list{
+    position: relative;
+    .card-list__title{
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 12px;
+    }
+    .swiper-slide{
+        width: 25%;
+        @include tablet{
+            width:33%;
+        }
+        @include mobile{
+            width: 45%;
+        }
+    }
+}
+
+.btn-next{
+    position: absolute;
+    top: 0px;
+    right:0;       
+    z-index: 99;
+    color:red;
+}

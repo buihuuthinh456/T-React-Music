@@ -1,0 +1,240 @@
+@use '../../scss/' as *;
+.playlist-detail-container{
+    min-height:2000px;
+    width:100%;
+    padding:36px;
+}
+.playlist-detail{
+    display:flex;
+    // width: 100%;
+    padding-bottom: 12px;
+    border-bottom:2px solid $bg-second;
+    &__thumbnail{
+        display:flex;
+        align-items: center;
+        min-width: 300px;
+        img{
+            border-radius:$border-radius ;
+            width: 100%;
+        }
+        @include mobile{
+            min-width: 100px;
+        }
+        @include tablet{
+            min-width: 200px;
+        }
+    }
+
+
+    &__information{
+        margin-left: 24px;
+        width: 100%;
+        &__title{
+            font-size: 1.2rem;
+            font-weight:700;
+            span{
+                font-size: 1rem;
+                font-weight:600;
+                color:$text-color-second;
+            }
+        }
+
+
+        &__artists{
+            display:flex;
+            align-items:center;
+            &__avatar{
+                width: 50px;
+                img{
+                    width: 100%;
+                    border-radius:50%;
+                    border:1px solid $white;
+                }
+                @include mobile{
+                    width: 30px;
+                }
+                @include tablet{
+                    width: 40px;
+                }
+                
+            }
+            &__name{
+                margin-left: 24px;
+                font-size: 1.2rem;
+                font-weight:600;
+                color:$text-color-second;
+            }
+        }
+
+        &__datemodify{
+            margin-top: 12px;
+            font-size: 1.1rem;
+            font-weight:600;
+            color:$text-color-second;
+        }
+
+        &__uploadby{
+            display:flex;
+            align-items: center;
+            margin-top: 12px;
+            &__avatar{
+                img{
+                    width: 50px;
+                    border-radius:50%;
+                }
+            }
+            &__fullname{
+                margin-left: 12px;
+                transform: translateY(-20%);
+                font-size:1.2rem;
+                color:$main-color;
+                font-weight: 600;
+                span{
+                    font-size: 1rem;
+                    font-weight:400;
+                    color:$text-color-second;
+                }
+            }
+        }
+
+        &__tags{
+            margin-top: 12px;
+            width:100%;
+            display:flex;
+            flex-wrap: wrap;
+            align-items: center;
+            span{
+                font-weight:400;
+                color:$text-color-second;
+            }
+            li{
+                position: relative;
+                height:30px;
+                align-items: center;
+                margin-left: 30px;
+                margin-top: 8px;
+                display:flex;
+                justify-content:center;
+                font-size: 1rem;
+                color:$text-color-second;
+                min-width:15%;
+                background-color: $bg-tag;
+                border-bottom-left-radius: 4px;
+                border-top-left-radius: 4px;
+
+                &:hover{
+                    color:$main-color;
+                    cursor: pointer;
+                }
+                &::after{
+                    content:"";
+                    position: absolute;
+                    top:0;
+                    right:0;
+                    border-top: 15px solid transparent; 
+                    border-bottom: 15px solid transparent;
+                    border-left: 20px solid $bg-tag;
+                    transform:translateX(100%)
+                }
+            }
+        }
+    }
+}
+.playlist-music{
+    margin-top: 24px;
+    width: 100%;
+    &__title{
+        margin-bottom: 12px;
+        h3{
+            font-size: 1.8rem;
+        }
+    }
+
+    &__list{
+        display:flex;
+        flex-direction: column;
+        width: 100%;
+        
+        &__item{
+            cursor: pointer;
+            display:flex;
+            align-items: center;
+            width: 100%;
+            color:$txt-color;
+            background-color: rgba(244,246,248,0.02);;
+            padding:6px 12px;
+            margin-bottom: 4px;
+            &__name{
+                flex:3;
+                padding-left: 24px;
+            }
+            &__singer{
+                flex:3;
+                color:$text-color-second;
+                &:hover{
+                    color:$main-color;
+                }
+            }
+            &__views{
+                flex:1;
+                text-align: center;
+                color:$text-color-second;
+            }
+            &__duration{
+                flex:1;
+                text-align: center;
+                color:$text-color-second;
+            }
+            &__add{
+                max-width: 30px;
+                text-align: center;
+                color:$text-color-second;
+                i{
+                    font-size: 1.4rem;
+                }
+                &:hover{
+                    color:$main-color;
+                }
+            }
+            &:hover{
+                background-color: $bg-tag;
+            }
+        }
+        &__item:nth-child(1){
+            cursor:default;
+            display:flex;
+            width: 100%;
+            color:$txt-color;
+            background-color: $bg-tag;
+            font-weight: 700;
+            padding:6px 12px;
+            margin-bottom: 8px;
+            .playlist-music__list__item__name{
+                flex:3;
+                padding-left: 24px;
+                color:inherit;
+            }
+            .playlist-music__list__item__singer{
+                flex:3;
+                padding-left: 24px;
+                color:inherit;
+
+            }
+            .playlist-music__list__item__views{
+                flex:1;
+                padding-left: 24px;
+                text-align: center;
+                color:inherit;
+
+            }
+            .playlist-music__list__item__duration{
+                flex:1;
+                padding-left: 24px;
+                text-align: center;
+                color:inherit;
+
+            }
+
+        }
+    }
+}

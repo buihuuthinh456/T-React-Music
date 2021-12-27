@@ -1,0 +1,80 @@
+@use '../../scss/' as *;
+
+.navbar-container{
+    max-width: $navbar-width;
+    width: 100%;
+    height:100vh;
+    padding:12px 0px;
+    border-right: 1px solid $border-color;
+    position:fixed;
+}
+
+.navbar-wrapper{
+    max-width: $navbar-width;
+    display:flex;
+    flex-direction: column;
+}
+
+.navbar-item{
+    display:flex;
+    margin-left: 16px;
+    min-height: 50px;
+    align-items: center;
+    position: relative;
+    span{
+        font-size: 14px;
+        margin:0 4px;
+        font-weight: 600px;
+        &:hover{
+            color:$main-color;
+            cursor: pointer;
+        }
+    }
+
+    &__logo{
+        margin-right: 12px;
+        >a{
+            >img{
+                width: 62px;
+            }
+        }
+    }
+
+    &__icon{
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+}
+
+.navbar-item-login{
+    background-color: $bg-second;
+    margin-left: 12px;
+    @include flex(center,flex-start)
+}
+
+
+a.navbar-item{
+    margin-left: 0;
+    &::before{
+        content:"";
+        transition: all 0.5s ease-in-out;
+        width: 3px;
+        height:0;
+        background-color:$main-color;
+        position:absolute;
+        top:0;
+        left:0;
+    }
+    &:hover::before{
+        height: 100%;
+    }
+    &.active{
+        background-color: rgba(244,246,248,0.05);
+        &::before{
+            height: 100%;
+        }
+    }
+
+}
+
+
