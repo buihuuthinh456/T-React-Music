@@ -25,6 +25,20 @@ export const musicReducer = (state = initialState,action)=>{
                 const newPlayingPlaylist = playingPlaylist.filter((item,index)=>item.key!==action.payload.key)
                 return {...state,playingPlaylist:newPlayingPlaylist}
             }
+        case ActionTypes.NEXT_SONG:
+            {
+                const playingPlaylist = state.playingPlaylist
+                const newPlayingPlaylist = [...playingPlaylist.filter((item,index)=>item.key!==action.payload.key),action.payload]
+                const newPlayingSong = playingPlaylist.find(item => item.key !== action.payload.key)
+                return {...state,playingPlaylist:newPlayingPlaylist,playingSong:newPlayingSong}
+            }
+        case ActionTypes.PREV_SONG:
+            {
+                const playingPlaylist = state.playingPlaylist
+                const prevSong = playingPlaylist[playingPlaylist.length-1]
+                const newPlayingPlaylist = [action.payload,...playingPlaylist.filter((item,index)=>item.key!==action.payload.key)]
+                return {...state,playingPlaylist:newPlayingPlaylist,playingSong:prevSong}
+            }
         default:
             return state
     }

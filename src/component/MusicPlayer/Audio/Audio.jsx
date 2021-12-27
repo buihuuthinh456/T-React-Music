@@ -2,8 +2,8 @@ import React,{useRef,useEffect} from 'react'
 
 import {useSelector,useDispatch} from 'react-redux'
 
-import { slicePlayingPlaylist } from '../../../redux/actions/musicAction'
-import { setPlayingSong } from '../../../redux/actions/musicAction'
+
+import { setPlayingSong,nextSong,prevSong } from '../../../redux/actions/musicAction'
 
 function Audio(){
     
@@ -19,9 +19,6 @@ function Audio(){
 
     const playBtn = useRef(null);
     const nextBtn = useRef(null);
-
-
-
     const handle = {
         isPlaying:false,
         isRandom:false,
@@ -60,10 +57,18 @@ function Audio(){
             this.handleEvent();
         }
     }
+     
+
+
     useEffect(()=>{
         console.log(audio)
         handle.start()
     },[playingPlaylist.length,playingSong.key])
+    useEffect(()=>{
+        audio.current.play();
+        handle.isPlaying = true;
+    },[playingSong.key])
+  
 
     if(playingSong.length === 0) return (<div>Nothing</div>)
 
@@ -92,7 +97,11 @@ function Audio(){
                 <div className="music-player-controls__buttons__item">
                     <i className="fas fa-random"></i>
                 </div>
-                <div className="music-player-controls__buttons__item">
+                <div className="music-player-controls__buttons__item"
+                    onClick={()=>{ 
+                        dispatch(prevSong(playingSong))
+                    }}
+                >
                     <i className="fas fa-step-backward"></i>
                 </div>
                 <div className="music-player-controls__buttons__item center" ref={playBtn}
@@ -116,14 +125,10 @@ function Audio(){
                 </div>
                 <div className="music-player-controls__buttons__item" ref={nextBtn}
                     onClick={()=>{ 
-                        if(playingPlaylist.length > 1){
-                            dispatch(setPlayingSong(playingPlaylist.find((item,index)=>item.key !== playingSong.key )))
-                            console.log(playingSong)
-                            dispatch(slicePlayingPlaylist(playingSong))
-                        }
-                        else{
-                            console.log('Đã hết danh sách bài hát')
-                        }
+                      
+                        dispatch(nextSong(playingSong))
+                        // dispatch(setPlayingSong(playingPlaylist.find((item,index)=>item.key !== playingSong.key )))
+                      
                     }}
                 >
                     <i className="fas fa-step-forward"></i>

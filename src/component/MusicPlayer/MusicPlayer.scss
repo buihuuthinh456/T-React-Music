@@ -90,8 +90,10 @@
             &__text{
                 display:flex;
                 flex-direction: column;
+                flex:1;
                 &__title{
                     flex:1;
+                    justify-self: flex-start;
                     max-height: 1.4rem;
                     line-height: 1.4rem;
                     overflow: hidden;
@@ -115,6 +117,16 @@
                             line-clamp: 1; 
                     -webkit-box-orient: vertical;
                     word-wrap: break-word;
+                }
+            }
+            &__options{
+                display:flex;
+                justify-self: flex-end;
+                &__item{
+                    font-size: 1.5rem;
+                }
+                &__item:hover{
+                    color:$main-color;
                 }
             }
         }

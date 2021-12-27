@@ -19,3 +19,17 @@ export const slicePlayingPlaylist = (item) => {
         payload: item
     }
 }
+
+export const nextSong = (song) => {
+    return {
+        type: ActionTypes.NEXT_SONG,
+        payload: song
+    }
+}
+
+export const prevSong = (song) => {
+    return {
+        type: ActionTypes.PREV_SONG,
+        payload: song
+    }
+}

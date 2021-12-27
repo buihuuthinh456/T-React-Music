@@ -5,8 +5,9 @@ import { useSelector } from 'react-redux'
 
 
 import {useDispatch} from 'react-redux'
-import {setPlayingSong, setPlayingPlaylist} from '../../redux/actions/musicAction'
+import {setPlayingSong, setPlayingPlaylist,slicePlayingPlaylist} from '../../redux/actions/musicAction'
 import { removeAddSong } from '../../redux/actions/playlistDetailAction'
+
 
 import Audio from './Audio/Audio'
 import MusicPlaying from './MusicPlaying/MusicPlaying'
@@ -21,14 +22,14 @@ function MusicPlayer() {
     const playingPlaylist = useSelector((state)=>state.musicPlayer.playingPlaylist)
     const dispatch = useDispatch();
 
-    function findElement(e){
+    function findElement(e,selector){
         const element = e.target
-        const key = element.closest('.music-player-playlist__playing').getAttribute('data-key')
+        const key = element.closest(selector).getAttribute('data-key')
         return key
     }
 
-    function findMusic(e){
-        const music = playingPlaylist.find(item => item.key === findElement(e))
+    function findMusic(e,selector){
+        const music = playingPlaylist.find(item => item.key === findElement(e,selector))
         return music
     }
  
@@ -116,7 +117,7 @@ function MusicPlayer() {
                                 <li className="music-player-playlist__playing" key={index}
                                     data-key={item.key}
                                     onClick={(e)=>{
-                                        dispatch(setPlayingSong(findMusic(e)))
+                                        dispatch(setPlayingSong(findMusic(e,'.music-player-playlist__playing')))
                                     }}
                                 >
                                     <div className="music-player-playlist__playing__img">
@@ -136,6 +137,14 @@ function MusicPlayer() {
                                                 }
                                             }) :'Không xác định'}
                                         </div>
+                                    </div>
+                                    <div className="music-player-playlist__playing__options">
+                                        <i className="fas fa-trash-alt music-player-playlist__playing__options__item"
+                                            onClick={(e)=>{
+                                                dispatch(slicePlayingPlaylist(findMusic(e,'.music-player-playlist__playing')))
+                                                e.stopPropagation()
+                                            }}
+                                        ></i>
                                     </div>
                                 </li>
                             )
