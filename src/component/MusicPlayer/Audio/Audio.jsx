@@ -3,7 +3,7 @@ import React,{useRef,useEffect} from 'react'
 import {useSelector,useDispatch} from 'react-redux'
 
 
-import { setPlayingSong,nextSong,prevSong } from '../../../redux/actions/musicAction'
+import {nextSong,prevSong } from '../../../redux/actions/musicAction'
 
 function Audio(){
     
@@ -90,7 +90,7 @@ function Audio(){
                     <input type="range" min='0' max='100' ref={timeProgress} />
                 </div>
                 <div className="music-player-controls__time__duration" ref={timeDuration}>
-                    4:18
+                    {playingSong.duration}
                 </div>
             </div>
             <div className="music-player-controls__buttons">

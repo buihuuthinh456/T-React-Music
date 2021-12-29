@@ -15,6 +15,23 @@
     flex-direction: column;
     justify-content:space-between;
 }
+.music-player-change-state{
+    // max-width: 200px;
+    font-size:1rem;
+    background-color: rgba(0,0,0,0);
+    position: absolute;
+    top:80%;
+    border:1px solid #333;
+    padding:10px 32px;
+    color:#999;
+    border-radius: 8px;
+    transition:all .3s ease-in-out;
+    align-self: center;
+}
+.music-player-change-state:hover{
+    border-color:$main-color;
+    color:#AAA;
+}
 .music-player-content{
     padding: 12px;
     background-color: $bg-tag;
