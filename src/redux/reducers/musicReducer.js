@@ -24,13 +24,21 @@ export const musicReducer = (state = initialState,action)=>{
                 const playingPlaylist = state.playingPlaylist
                 const newPlayingPlaylist = playingPlaylist.filter((item,index)=>item.key!==action.payload.key)
                 return {...state,playingPlaylist:newPlayingPlaylist}
+                
             }
         case ActionTypes.NEXT_SONG:
             {
                 const playingPlaylist = state.playingPlaylist
-                const newPlayingPlaylist = [...playingPlaylist.filter((item,index)=>item.key!==action.payload.key),action.payload]
-                const newPlayingSong = playingPlaylist.find(item => item.key !== action.payload.key)
-                return {...state,playingPlaylist:newPlayingPlaylist,playingSong:newPlayingSong}
+                if(playingPlaylist.length > 1){
+                    const newPlayingPlaylist = [...playingPlaylist.filter((item,index)=>item.key!==action.payload.key),action.payload]
+                    const newPlayingSong = playingPlaylist.find(item => item.key !== action.payload.key)
+                    return {...state,playingPlaylist:newPlayingPlaylist,playingSong:newPlayingSong}
+                }
+                else{
+                    console.log('Đã hết playlist')
+                    return {...state}
+                }
+                
             }
         case ActionTypes.PREV_SONG:
             {

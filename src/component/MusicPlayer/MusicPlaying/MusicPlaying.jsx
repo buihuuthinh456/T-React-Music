@@ -1,6 +1,7 @@
 import React from 'react'
-function MusicPlaying(props) {
-    const playingSong = props.playingSong
+import {useSelector} from 'react-redux'
+function MusicPlaying() {
+    const playingSong = useSelector((state)=>state.musicPlayer.playingSong);
     return (
         <div className="music-player-playing">
             <div className="music-player-playing__thumnail">

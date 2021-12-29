@@ -21,6 +21,7 @@ function Home() {
     useEffect( ()=>{
         window.scrollTo(0,0)
     },[])
+    console.log(data)
     if(data.length <= 0) return <div>Loading</div>
     return (
         <div className="home">

@@ -2,11 +2,12 @@ import React from 'react'
 
 import {useDispatch} from 'react-redux'
 import {setPlayingSong,slicePlayingPlaylist} from '../../../redux/actions/musicAction'
+import {useSelector} from 'react-redux'
 
 
-function MusicPlayingPlayList(props) {
-    const playingSong = props.playingSong
-    const playingPlaylist = props.playingPlaylist
+function MusicPlayingPlayList() {
+    const playingSong = useSelector((state)=>state.musicPlayer.playingSong);
+    const playingPlaylist = useSelector((state)=>state.musicPlayer.playingPlaylist)
     const dispatch = useDispatch();
 
     function findElement(e,selector){

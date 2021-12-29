@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 
 import {useDispatch} from 'react-redux'
 import {setPlayingSong, setPlayingPlaylist} from '../../redux/actions/musicAction'
-import { removeAddSong } from '../../redux/actions/playlistDetailAction'
+import { removeAddSong,removeSelectSong } from '../../redux/actions/playlistDetailAction'
 
 
 import Audio from './Audio/Audio'
@@ -33,6 +33,7 @@ function MusicPlayer() {
             dispatch(setPlayingSong(response.song))
             dispatch(setPlayingPlaylist(response.song))
             dispatch(removeAddSong())
+            dispatch(removeSelectSong())
         }
         const object = playingPlaylist.find((item)=>item.key===keySelectSong)
         if(object){
@@ -82,8 +83,8 @@ function MusicPlayer() {
             <div className="music-player-content">
                 {
                     !showPlayingList === true
-                    ?<MusicPlaying playingSong={playingSong} />
-                    :<MusicPlayingPlayList playingPlaylist={playingPlaylist} playingSong={playingSong} />
+                    ?<MusicPlaying />
+                    :<MusicPlayingPlayList />
                 }
             </div>
             <button 

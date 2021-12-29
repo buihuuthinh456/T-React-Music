@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
 
+import {Link} from 'react-router-dom'
 
 import './HeroSection2.scss';
 
@@ -58,7 +59,7 @@ function HeroSection2(props) {
             <div className="slider-wrapper">
                 {
                     heroSlide.map((item,index)=>
-                    (<div key={index} className={`slider-item ${ index===slider ? 'active' : ''}`} style={{backgroundImage:`url(${item.thumbnail})`}} />))
+                    (<Link to={`/topic/${item.key}`} key={index} className={`slider-item ${ index===slider ? 'active' : ''}`} style={{backgroundImage:`url(${item.thumbnail})`}} />))
                     //  heroSlide.map((item,index)=>
                     // (<img key={index} className={`slider-item ${ index===slider ? 'active' : ''}`} src={item.thumbnail} alt={item.title} />))
                 }

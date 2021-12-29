@@ -16,7 +16,7 @@ export const setSelectSong = (selectSong) => {
 }
 export const removeSelectSong = () => {
     return {
-        type: ActionTypes.SET_SELECT_SONG,
+        type: ActionTypes.REMOVE_SELECT_SONG,
         payload: ''
     }
 }
@@ -29,7 +29,7 @@ export const setAddSong = (addSong) => {
 }
 export const removeAddSong = () => {
     return {
-        type: ActionTypes.SET_ADD_SONG,
+        type: ActionTypes.REMOVE_ADD_SONG,
         payload: ''
     }
 }

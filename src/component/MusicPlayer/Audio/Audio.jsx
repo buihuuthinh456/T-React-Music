@@ -1,12 +1,15 @@
-import React,{useRef,useEffect} from 'react'
+import React,{useRef,useEffect,useState} from 'react'
 
 import {useSelector,useDispatch} from 'react-redux'
 
 
-import {nextSong,prevSong } from '../../../redux/actions/musicAction'
+import {nextSong,prevSong,setPlayingSong } from '../../../redux/actions/musicAction'
 
 function Audio(){
     
+    const [valueVolume,setValueVolume] = useState(100)
+    const [isRepeat,setIsRepeat] = useState(false)
+    const [isRandom,setIsRandom] = useState(false)
     const playingPlaylist = useSelector((state)=>state.musicPlayer.playingPlaylist)
     const playingSong = useSelector((state)=>state.musicPlayer.playingSong);
     const dispatch = useDispatch();
@@ -16,13 +19,16 @@ function Audio(){
     const timeCurrent = useRef(null);
     const timeProgress = useRef(null);
     const timeDuration = useRef(null);
+    const volumeProgress = useRef(null);
 
     const playBtn = useRef(null);
-    const nextBtn = useRef(null);
+    const randomBtn = useRef(null);
+    const repeatBtn = useRef(null);
+    
     const handle = {
         isPlaying:false,
-        isRandom:false,
-        isRepeat:false,
+        isRandom:isRandom,
+        isRepeat:isRepeat,
         handleEvent(){
             // Khi thời gian update
             audio.current.ontimeupdate = ()=>{
@@ -33,6 +39,7 @@ function Audio(){
                     timeProgress.current.value = progressPercent;
                     timeCurrent.current.innerHTML = `0${minutes}:${seconds>=10?seconds:"0"+seconds}`
                 }
+                
             }
         
             // Khi tua 
@@ -48,13 +55,58 @@ function Audio(){
             }
              // Khi nhac dang pause
              audio.current.onpause = ()=>{
-                 playBtn.current.childNodes[0].classList.remove('fas','fa-pause')
+                playBtn.current.childNodes[0].classList.remove('fas','fa-pause')
                 playBtn.current.childNodes[0].classList.add('fas','fa-play')
                
             }
+            // Khi endSong
+            audio.current.onended = ()=>{
+                if(this.isRepeat){
+                    audio.current.play()
+                }
+                else{
+                    if(isRandom){
+                        this.randomSong()
+                    }
+                    else{
+                        dispatch(nextSong(playingSong))
+                    }
+                }
+            }
+            // Khi thay doi volume
+            volumeProgress.current.oninput = (e)=>{
+                const seekVolume = e.target.value/100;
+                setValueVolume(seekVolume*100)
+                audio.current.volume = seekVolume;
+            }
+            // Khi isRepeat
+            if(this.isRepeat){
+                repeatBtn.current.childNodes[0].classList.add('main-color')
+              
+            }
+            else{
+                repeatBtn.current.childNodes[0].classList.remove('main-color')
+            }
+            // Khi isRandom
+            if(this.isRandom){
+                randomBtn.current.childNodes[0].classList.add('main-color')
+            }
+            else{
+                randomBtn.current.childNodes[0].classList.remove('main-color')
+            }
+            
+
+        },
+        randomSong(){
+            let newIndex
+            do {
+                newIndex = Math.floor(Math.random()*playingPlaylist.length);
+            }while(playingPlaylist[newIndex].key===playingSong.key);
+            dispatch(setPlayingSong(playingPlaylist[newIndex]))
         },
         start(){
             this.handleEvent();
+            audio.current.volume=1;
         }
     }
      
@@ -63,7 +115,7 @@ function Audio(){
     useEffect(()=>{
         console.log(audio)
         handle.start()
-    },[playingPlaylist.length,playingSong.key])
+    },[playingPlaylist.length,playingSong.key,handle.isRepeat,handle.isRandom,handle])
     useEffect(()=>{
         audio.current.play();
         handle.isPlaying = true;
@@ -79,6 +131,12 @@ function Audio(){
                 ref={audio}
                 className="music-player-controls__audio"
             ></audio>
+            <div className="music-player-controls__volume" >
+                <i className="fas fa-volume-up"></i>
+                <div className="music-player-controls__volume__input">
+                    <input type="range" min='0' max='100' value={valueVolume} ref={volumeProgress}/>
+                </div>
+            </div>
             <div className="music-player-controls__time">
                 <div 
                     className="music-player-controls__time__current" 
@@ -94,7 +152,10 @@ function Audio(){
                 </div>
             </div>
             <div className="music-player-controls__buttons">
-                <div className="music-player-controls__buttons__item">
+                <div className="music-player-controls__buttons__item" 
+                    ref={randomBtn}
+                    onClick={()=>{setIsRandom(!isRandom)}}
+                >
                     <i className="fas fa-random"></i>
                 </div>
                 <div className="music-player-controls__buttons__item"
@@ -123,9 +184,8 @@ function Audio(){
                 >
                     <i className="fas fa-play"></i>
                 </div>
-                <div className="music-player-controls__buttons__item" ref={nextBtn}
+                <div className="music-player-controls__buttons__item" 
                     onClick={()=>{ 
-                      
                         dispatch(nextSong(playingSong))
                         // dispatch(setPlayingSong(playingPlaylist.find((item,index)=>item.key !== playingSong.key )))
                       
@@ -133,10 +193,15 @@ function Audio(){
                 >
                     <i className="fas fa-step-forward"></i>
                 </div>
-                <div className="music-player-controls__buttons__item">
-                    <i className="fas fa-undo"></i>
+                <div className="music-player-controls__buttons__item" 
+                    ref={repeatBtn} 
+                    onClick={()=>{
+                        setIsRepeat(!isRepeat)
+                        console.log(isRepeat)
+                    }}
+                >
+                    <i className='fas fa-undo'></i>
                 </div>
-               
             </div>
         </div>
     )

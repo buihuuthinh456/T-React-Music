@@ -22,7 +22,7 @@
     top:75%;
     border:1px solid #333;
     padding:10px 32px;
-    color:#999;
+    color:$text-color-second;
     border-radius: 8px;
     transition:all .3s ease-in-out;
     align-self: center;
@@ -139,7 +139,7 @@
                 display:flex;
                 justify-self: flex-end;
                 &__item{
-                    font-size: 1.5rem;
+                    font-size: 1.1rem;
                 }
                 &__item:hover{
                     color:$main-color;
@@ -152,22 +152,58 @@
     width: 100%;
     margin-top: 12px;
     margin-bottom: 32px;
+    &__volume{
+        position:absolute;
+        top:75%;
+        display:flex;
+        align-items: center;
+        padding:12px;
+        border-bottom-right-radius: 30px;
+        border-bottom-left-radius: 30px;
+        i{
+            color:$text-color-second;
+        }
+        &:hover{
+            background-color: #18222d;
+        }
+        &:hover &__input{
+            display:flex;
+            cursor: pointer;
+            background-color: #18222d;
+        }
+        &__input{
+            display:none;
+            position: absolute;
+            transform:rotate(-90deg) translateY(-27%) translateX(-10%);
+            transform-origin: left 0;
+            bottom: 0;
+            padding:12px;
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+            input{
+                max-width: 100px;
+                cursor: pointer;
+            }
+        }
+    }
     &__time{
         @include flex(center,unset);
         &__current{
-
+            color:$text-color-second;
         }
         &__progress{
             @include flex(center,unset);
+           
             flex:1;
             padding: 0 12px;
             input{
                 width: 100%;
+                cursor: pointer;
             }
             transform:translateY(-5%)
         }
         &__duration{
-            
+            color:$text-color-second;
         }
     }
     &__buttons{
@@ -180,6 +216,9 @@
             margin-right: 8px;
             font-size: 1.2rem;
             cursor: pointer;
+            i.main-color{
+                color:$main-color;
+            }
         }
         &__item.center{
             font-size: 1.5rem;
