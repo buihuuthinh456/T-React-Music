@@ -13,6 +13,8 @@ import MusicPlayer from './component/MusicPlayer/MusicPlayer';
 
 import BaiHat from './pages/BaiHat/BaiHat';
 
+import Search from './pages/Search/Search';
+
 import PlayListDetail from './pages/PlayListDetail/PlayListDetail';
 
 import 'swiper/swiper.min.css';
@@ -29,6 +31,7 @@ function App() {
           <div className="content">
             <Routes>
               <Route  index path="/" element={<Home/>} />
+              <Route  index path="/search" element={<Search/>} />
               <Route  path="/baihat" element={<BaiHat/>} />
               <Route  path="/playlist/:playlistID" element={<PlayListDetail/>} />
             </Routes>

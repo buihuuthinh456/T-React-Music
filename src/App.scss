@@ -9,7 +9,14 @@
   margin: 0;
   box-sizing: border-box;
 }
-
+.card-container{
+  // padding:0 36px;
+}
+.playlist-detail-container{
+  min-height:2000px;
+  width:100%;
+  padding:36px;
+}
 html{
   font-size: 100%;
   @include tablet{

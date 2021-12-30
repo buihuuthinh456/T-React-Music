@@ -1,0 +1,99 @@
+@use '../../scss/' as *;
+.playlist-music{
+    margin-top: 24px;
+    width: 100%;
+    &__title{
+        margin-bottom: 12px;
+        h3{
+            font-size: 1.5rem;
+        }
+    }
+
+    &__list{
+        display:flex;
+        flex-direction: column;
+        width: 100%;
+        
+        &__item{
+            cursor: pointer;
+            display:flex;
+            align-items: center;
+            width: 100%;
+            color:$txt-color;
+            background-color: rgba(244,246,248,0.02);;
+            padding:6px 12px;
+            margin-bottom: 4px;
+            &__name{
+                flex:3;
+                padding-left: 24px;
+            }
+            &__singer{
+                flex:3;
+                color:$text-color-second;
+                &:hover{
+                    color:$main-color;
+                }
+            }
+            &__views{
+                flex:1;
+                text-align: center;
+                color:$text-color-second;
+            }
+            &__duration{
+                flex:1;
+                text-align: center;
+                color:$text-color-second;
+            }
+            &__add{
+                max-width: 30px;
+                text-align: center;
+                color:$text-color-second;
+                i{
+                    font-size: 1.4rem;
+                }
+                &:hover{
+                    color:$main-color;
+                }
+            }
+            &:hover{
+                background-color: $bg-tag;
+            }
+        }
+        &__item:nth-child(1){
+            cursor:default;
+            display:flex;
+            width: 100%;
+            color:$txt-color;
+            background-color: $bg-tag;
+            font-weight: 700;
+            padding:6px 12px;
+            margin-bottom: 8px;
+            .playlist-music__list__item__name{
+                flex:3;
+                padding-left: 24px;
+                color:inherit;
+            }
+            .playlist-music__list__item__singer{
+                flex:3;
+                padding-left: 24px;
+                color:inherit;
+
+            }
+            .playlist-music__list__item__views{
+                flex:1;
+                padding-left: 24px;
+                text-align: center;
+                color:inherit;
+
+            }
+            .playlist-music__list__item__duration{
+                flex:1;
+                padding-left: 24px;
+                text-align: center;
+                color:inherit;
+
+            }
+
+        }
+    }
+}

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './PlayListDescription.scss'
+
 function PlayListDescription(props) {
     const data=props.data;
     return (

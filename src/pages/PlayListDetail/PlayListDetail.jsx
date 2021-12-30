@@ -11,8 +11,9 @@ import { setPlaylistDetail,removeSelectSong,removeAddSong } from '../../redux/ac
 
 import './PlayListDetail.scss'
 
-import PlayListDescription from './PlayListDescription/PlayListDescription'
-import ListMusic from './PlayListDescription/ListMusic'
+
+import PlayListDescription from '../../component/PlayListDescription/PlayListDescription'
+import ListMusic from '../../component/PlayListDescription/ListMusic'
 
 
 

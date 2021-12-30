@@ -2,9 +2,9 @@ import React from 'react'
 
 import {useDispatch} from 'react-redux'
 
-import { setSelectSong,setAddSong } from '../../../redux/actions/playlistDetailAction'
+import { setSelectSong,setAddSong } from '../../redux/actions/playlistDetailAction'
 
-
+import './ListMusic.scss'
 
 
 function ListMusic(props) {
@@ -17,6 +17,31 @@ function ListMusic(props) {
         const element = e.target
         const key = element.closest('.playlist-music__list__item').getAttribute('data-key')
         return key
+    }
+    if(data.length===0) {
+        return(
+            <div className="playlist-music">
+                <div className="playlist-music__title">
+                    <h3>Danh sách bài hát</h3>
+                </div>
+                <ul className="playlist-music__list">
+                    <li className="playlist-music__list__item">
+                        <div className="playlist-music__list__item__name">
+                            TIÊU ĐỀ
+                        </div>
+                        <div className="playlist-music__list__item__singer">
+                            NGHỆ SỸ
+                        </div>
+                        <div className="playlist-music__list__item__views">
+                            LƯỢT NGHE
+                        </div>
+                        <div className="playlist-music__list__item__duration">
+                            THỜI GIAN
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        )
     }
     return (
         <div className="playlist-music">
