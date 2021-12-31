@@ -1,0 +1,77 @@
+@use '../../scss/' as *;
+.top10-baihat-content{
+    &__list{
+        display:flex;
+        flex-direction: column;
+        height: 400px;
+        flex-wrap: wrap;
+        width: 100%;
+        &__item{
+            width: 49%;
+            height:19%;
+            background-color:$bg-tag;
+            display:flex;
+            align-items: center;
+            padding:12px;
+            margin-bottom: 4px;
+            color:$text-color-second;
+            &:nth-child(n+6){
+                margin-left: 12px;
+            }
+            &:hover{
+                background-color:#0fa1c5;
+                color:#f9f9f9;
+                cursor: pointer;
+            }
+            &:hover &__options{
+                display:flex;
+            }
+            &:hover &__views{
+                display:none;
+            }
+            &__options{
+                display:none;
+                align-items: center;
+                padding:12px;
+                border-radius: 50%;
+                transition: all 0.3s ease-in-out;
+                i{
+                    font-size:1rem;
+                }
+                &:hover{
+                  background-color:rgb(64, 73, 82,0.5);
+                 
+                }
+            }
+            &__img{
+                background-position: top center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                width:54px;
+                height:54px;
+                border-radius: 4px;
+            }
+            &__text{
+                margin-left: 12px;
+                flex:1;
+                &__title{
+                    font-size: 1rem;
+                }
+                &__singer{
+                    font-size:0.9rem;
+                }
+            }
+            &__views{
+                display:flex;
+                align-items: center;
+                i{
+                    margin-right: 12px;
+                }
+                span{
+                    font-size:1rem;
+                    margin-right: 12px;
+                }
+            }
+        }
+    }
+}

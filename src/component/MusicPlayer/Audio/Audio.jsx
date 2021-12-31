@@ -26,7 +26,7 @@ function Audio(){
     const repeatBtn = useRef(null);
     
     const handle = {
-        isPlaying:false,
+        isPlaying:true,
         isRandom:isRandom,
         isRepeat:isRepeat,
         handleEvent(){
@@ -78,6 +78,7 @@ function Audio(){
                 const seekVolume = e.target.value/100;
                 setValueVolume(seekVolume*100)
                 audio.current.volume = seekVolume;
+     
             }
             // Khi isRepeat
             if(this.isRepeat){
@@ -106,12 +107,8 @@ function Audio(){
         },
         start(){
             this.handleEvent();
-            audio.current.volume=1;
         }
     }
-     
-
-
     useEffect(()=>{
         console.log(audio)
         handle.start()

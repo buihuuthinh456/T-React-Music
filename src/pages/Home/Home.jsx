@@ -1,9 +1,15 @@
 import React,{useEffect} from 'react'
-import HeroSection2 from '../../component/HeroSection/HeroSection2'
-import CardList from '../../component/CardList/CardList'
+
+
 import { getHome } from 'nhaccuatui-api-full'
 import {useDispatch,useSelector} from 'react-redux'
 import { setHome } from '../../redux/actions/homeAction'
+
+import HeroSection2 from '../../component/HeroSection/HeroSection2'
+import CardList from '../../component/CardList/CardList'
+import Top10BaiHat from '../../component/Top10BaiHat/Top10BaiHat'
+
+
 import './Home.scss'
 
 function Home() {
@@ -33,6 +39,7 @@ function Home() {
                     )):'Loading'
                 }
             </div>
+            <Top10BaiHat data={data.song}/>
         </div>
     )
 
