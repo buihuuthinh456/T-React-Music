@@ -1,0 +1,72 @@
+@use '../../scss/' as *;
+
+.footer{
+    width:100%;
+    padding:24px 36px 0 36px;
+    border-top: 1px solid $border-color;
+    &-contact{
+        width: 100%;
+        display:flex;
+        justify-content: space-between;
+        position: relative;
+        padding-bottom:24px;
+        &::after{
+            content:"";
+            position:absolute;
+            width: 100%;
+            height:1px;
+            background-color:$border-color;
+            top:100%;
+        }
+        &__support{
+            display:flex;
+            align-items: center;
+            &__item{
+                font-size:1rem;
+                padding: 0 12px;
+
+                &:nth-child(n+1){
+                    border-right: 1px solid $border-color;
+                }
+            }
+        }
+        &__social{
+            display:flex;
+            align-items: center;
+            &__item{
+                font-size:1.5rem;
+                padding:0 12px;
+                &:nth-child(1),&:nth-child(2){
+                    border-right: 1px solid $border-color;
+                }
+
+            }
+        }
+    }
+
+    &-location{
+        padding:12px 0;
+        color:$text-color-second;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid $border-color;
+        &__item{
+            display:flex;
+            align-items: center;
+            i{
+                margin-right: 8px;
+                font-size:1.4rem;
+            }
+            p{
+                line-height: 1.6;
+            }
+        }
+    }
+    &-copyright{
+        font-size:0.8rem;
+        color:$text-color-second;
+        text-align: center;
+        padding:12px 0;
+    }
+}

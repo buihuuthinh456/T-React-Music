@@ -1,0 +1,14 @@
+.inforuser{
+    width: 100%;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    &__image{
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    &__name{
+        font-size:0.9rem;
+        margin-left: 12px;
+    }
+}

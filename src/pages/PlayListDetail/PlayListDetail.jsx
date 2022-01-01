@@ -14,7 +14,7 @@ import './PlayListDetail.scss'
 
 import PlayListDescription from '../../component/PlayListDescription/PlayListDescription'
 import ListMusic from '../../component/PlayListDescription/ListMusic'
-
+import ContentLoading from '../../component/ContentLoading/ContentLoading'
 
 
 
@@ -44,7 +44,7 @@ function PlayListDetail() {
 
 
     if(data.length <= 0) {
-        return <div>Loading</div>
+        return <ContentLoading/>
     }
     else{
         return (

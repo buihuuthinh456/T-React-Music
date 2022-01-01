@@ -9,6 +9,8 @@ import HeroSection2 from '../../component/HeroSection/HeroSection2'
 import CardList from '../../component/CardList/CardList'
 import Top10BaiHat from '../../component/Top10BaiHat/Top10BaiHat'
 
+import ContentLoading from '../../component/ContentLoading/ContentLoading'
+
 
 import './Home.scss'
 
@@ -28,7 +30,7 @@ function Home() {
         window.scrollTo(0,0)
     },[])
     console.log(data)
-    if(data.length <= 0) return <div>Loading</div>
+    if(data.length <= 0) return <ContentLoading/>
     return (
         <div className="home">
             <HeroSection2 heroSlide={typeof data==='object'?data.showcase:[]} />

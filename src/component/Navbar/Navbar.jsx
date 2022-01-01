@@ -1,9 +1,13 @@
 import React,{useState} from 'react'
 
 import { Link,useLocation } from 'react-router-dom'
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 
 
+import InforUser from '../InforUser/InforUser';
 import logo from '../../assets/img/logoNhaccuatui.png';
+
+
 
 import './Navbar.scss'
 
@@ -11,9 +15,21 @@ import Button from '../Button/Button';
 
 function Navbar() {
 
-    const [modalLogin,setModalLogin] = useState(false);
-    const [modalRegister,setModalRegister] = useState(false);
+    const [login, setLogin] = useState(false);
+    const [data, setData] = useState({});
+    const [picture, setPicture] = useState('');
 
+    const responseFacebook = (response) => {
+        console.log(response);
+        setData(response);
+        setPicture(response.picture.data.url);
+        if (response.accessToken) {
+          setLogin(true);
+        } else {
+          setLogin(false);
+        }
+      }
+    
     const headerNav = [
         {
             display:'Tìm Kiếm',
@@ -40,7 +56,6 @@ function Navbar() {
     const { pathname } = useLocation();
 
     const active = headerNav.findIndex( e => e.path === pathname );
-
     return (
         <div className="navbar-container">
             <div className="navbar-wrapper">
@@ -54,9 +69,22 @@ function Navbar() {
                 </div>
 
                 <div className="navbar-item navbar-item-login">
-                    <span onClick={()=>setModalLogin(true)}>Đăng Nhập</span>
-                    |
-                    <span  onClick={()=>setModalRegister(true)}>Đăng Ký</span>
+                    {!login &&
+                        <FacebookLogin
+                        appId="1629097780767016"
+                        autoLoad={false}
+                        fields="name,email,picture"
+                        scope="public_profile,user_friends"
+                        callback={responseFacebook}
+                        icon="fa-facebook" 
+                        render={renderProps => (
+                            <Button className='btn-medium' onClick={renderProps.onClick}>Facebook Login</Button>
+                        )}
+                    />
+                    }
+                    {login &&
+                        <InforUser data={{src:picture,name:data.name}}/>
+                    }
                 </div>
                 {
                     headerNav.map((e,i)=>(

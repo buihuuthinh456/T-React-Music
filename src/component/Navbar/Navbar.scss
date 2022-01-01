@@ -47,9 +47,9 @@
 }
 
 .navbar-item-login{
-    background-color: $bg-second;
     margin-left: 12px;
-    @include flex(center,flex-start)
+    justify-content: center;
+    align-items: center;
 }
 
 
