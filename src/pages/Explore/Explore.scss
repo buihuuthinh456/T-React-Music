@@ -1,0 +1,65 @@
+@use '../../scss/' as *;
+
+.explore{
+    min-height:2000px;
+    width:100%;
+    padding:24px 36px;
+    
+    &-container{
+        width: 100%;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content:center;
+    }
+    &-title{
+        width: 100%;
+        font-size:1.8rem;
+        text-align: center;
+        padding-bottom:12px;
+        border-bottom: 1px solid $border-color;
+        h3{
+            color:$main-color;
+            text-shadow: 1px 2px 3px $main-color;
+        }
+    }
+    &-options{
+        display:flex;
+        margin-top: 24px;
+        &__item{
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin:0 32px;
+            a{
+                text-align: center;
+            }
+            &::before{
+                content:"";
+                position:absolute;
+                top:100%;
+                left: 0;
+                width: 0;
+                height:0;
+                background-color:$main-color;
+                transition:all .3s ease-in-out;
+            }
+            &.--active {     
+               &::before{
+                    width: 100%;
+                    height:2px;
+               }
+            }
+            &:hover{
+                &::before{
+                    width: 100%;
+                    height:2px;
+                }
+            }
+        }
+    }
+    &-content{
+        margin-top: 24px;
+    }
+
+}

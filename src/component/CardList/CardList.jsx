@@ -33,9 +33,7 @@ function CardList(props) {
                 {
                     list.map((item,i)=>(
                         <SwiperSlide key={i}>
-                            <Link to={`/playlist/${item.key}`}>
-                                <Card thumbnail={item.thumbnail} title={item.title} />
-                            </Link>
+                            <Card thumbnail={item.thumbnail} title={item.title} dataKey={item.key} type='playlist' />
                         </SwiperSlide>
                     ))
                 }

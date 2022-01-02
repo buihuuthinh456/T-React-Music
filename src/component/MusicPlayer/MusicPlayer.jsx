@@ -43,7 +43,6 @@ function MusicPlayer() {
             if(keySelectSong){
                 fetchSong()
             }
-            console.log('khong co')
         }
         
         

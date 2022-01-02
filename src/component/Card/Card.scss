@@ -15,6 +15,7 @@
             height:98%;
             align-items: center;
             justify-content:center;
+            transition: all 0.3s ease-in-out;
             @include overlay;
             &__box-icon{
                 padding:24px;
@@ -32,9 +33,15 @@
         &:hover .card-item-overlay{
             display:flex;
             cursor: pointer;
+            transform:scale(1.05);
         }
         img{
             width: 100%;
+            border-radius: 4px;
+            transition: all 0.3s ease-in-out;
+        }
+        &:hover img{
+            transform:scale(1.05);
         }
     }
 

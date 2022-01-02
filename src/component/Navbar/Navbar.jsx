@@ -43,8 +43,8 @@ function Navbar() {
         },
         {
             display:'Khám Phá',
-            path:'/baihat',
-            icon:'fas fa-compass'
+            icon:'fas fa-compass',
+            path:'/explore/song'
         },
         {
             display:'BXH NCT',
@@ -55,7 +55,7 @@ function Navbar() {
 
     const { pathname } = useLocation();
 
-    const active = headerNav.findIndex( e => e.path === pathname );
+    const active = headerNav.findIndex( e => e.path.split('/explore')[0] === pathname.split('/explore')[0] );
     return (
         <div className="navbar-container">
             <div className="navbar-wrapper">
@@ -78,7 +78,7 @@ function Navbar() {
                         callback={responseFacebook}
                         icon="fa-facebook" 
                         render={renderProps => (
-                            <Button className='btn-medium' onClick={renderProps.onClick}>Facebook Login</Button>
+                            <Button className='btn-medium' onClick={renderProps.onClick}>ĐĂNG NHẬP FACEBOOK</Button>
                         )}
                     />
                     }
@@ -87,17 +87,16 @@ function Navbar() {
                     }
                 </div>
                 {
-                    headerNav.map((e,i)=>(
-                        <Link className={`navbar-item ${i=== active ? 'active' : ''} `} to={e.path} key={i}>
-                            <i className={`navbar-item__icon ${e.icon}`}></i>
-                            <span className="navbar-item__title" >
-                                {e.display}
-                            </span>
-                        </Link>
-                    ))
-                }
-                
-                
+                    headerNav.map((e,i)=>{
+                            return (
+                                <Link className={`navbar-item representation ${i=== active ? 'active' : ''} `} to={e.path} key={i}>
+                                    <i className={`navbar-item__icon ${e.icon}`}></i>
+                                    <span className="navbar-item__title" >
+                                        {e.display}
+                                    </span>
+                                </Link>
+                            )
+                })}
             </div>
         </div>
     )

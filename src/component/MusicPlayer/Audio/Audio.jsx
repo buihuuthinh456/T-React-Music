@@ -183,7 +183,12 @@ function Audio(){
                 </div>
                 <div className="music-player-controls__buttons__item" 
                     onClick={()=>{ 
-                        dispatch(nextSong(playingSong))
+                        if(isRandom){
+                            handle.randomSong()
+                        }
+                        else{
+                            dispatch(nextSong(playingSong))
+                        }
                         // dispatch(setPlayingSong(playingPlaylist.find((item,index)=>item.key !== playingSong.key )))
                       
                     }}

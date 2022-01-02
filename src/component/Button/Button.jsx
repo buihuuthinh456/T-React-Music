@@ -5,7 +5,7 @@ import './Button.scss'
 function Button(props) {
     return (
         <button
-            className={`btn-outline ${props.className}`}
+            className={`${props.type||'btn-outline'} ${props.className}`}
             onClick={props.onClick ? ()=>props.onClick() : null}
         >
             {props.children}

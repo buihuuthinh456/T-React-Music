@@ -12,7 +12,7 @@ function Top10BaiHat(props) {
         return key
     }
     
-    if(data.length===0){
+    if(data.length===0 || !data){
         return(
             <div>Không có dữ liệu</div>
         )
