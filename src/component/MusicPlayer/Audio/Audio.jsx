@@ -24,7 +24,6 @@ function Audio(){
     const playBtn = useRef(null);
     const randomBtn = useRef(null);
     const repeatBtn = useRef(null);
-    
     const handle = {
         isPlaying:true,
         isRandom:isRandom,
@@ -110,7 +109,6 @@ function Audio(){
         }
     }
     useEffect(()=>{
-        console.log(audio)
         handle.start()
     },[playingPlaylist.length,playingSong.key,handle.isRepeat,handle.isRandom,handle])
     useEffect(()=>{
@@ -199,7 +197,6 @@ function Audio(){
                     ref={repeatBtn} 
                     onClick={()=>{
                         setIsRepeat(!isRepeat)
-                        console.log(isRepeat)
                     }}
                 >
                     <i className='fas fa-undo'></i>

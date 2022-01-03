@@ -2,6 +2,8 @@ import React from 'react'
 
 import {useDispatch} from 'react-redux'
 
+import {useNavigate} from 'react-router-dom'
+
 import { setSelectSong,setAddSong } from '../../redux/actions/playlistDetailAction'
 
 import './ListMusic.scss'
@@ -11,6 +13,8 @@ function ListMusic(props) {
 
     const dispatch = useDispatch();
     const data=props.data
+
+    const navigate = useNavigate()
 
 
     function findElement(e){
@@ -62,6 +66,9 @@ function ListMusic(props) {
                     <div className="playlist-music__list__item__duration">
                         THỜI GIAN
                     </div>
+                    <div className="playlist-music__list__item__options">
+                        
+                    </div>
                 </li>
                 {
                     data.songs.map((item,index)=>(
@@ -90,18 +97,28 @@ function ListMusic(props) {
                             <div className="playlist-music__list__item__duration">
                                 {item.duration}
                             </div>
-                            <div className="playlist-music__list__item__add" 
-                                onClick={
-                                    item.streamUrls.length===0
-                                    ?(e)=>{
+                            <div className="playlist-music__list__item__options">
+                                <div className="playlist-music__list__item__options__item"
+                                    onClick={
+                                        item.streamUrls.length===0
+                                        ?(e)=>{
+                                            e.stopPropagation();
+                                            alert('Bài nhạc này bị lỗi. Bạn vui lòng chọn bài khác')}
+                                        :(e)=>{
                                         e.stopPropagation();
-                                        alert('Bài nhạc này bị lỗi. Bạn vui lòng chọn bài khác')}
-                                    :(e)=>{
-                                    e.stopPropagation();
-                                    dispatch(setAddSong(findElement(e)));
-                                }}
-                            >
-                                <i className="fas fa-music"></i>
+                                        dispatch(setAddSong(findElement(e)));
+                                    }}
+                                >
+                                    <i className="fas fa-music"></i><span>Nhấn vào đây để thêm vào danh sách phát</span>
+                                </div>
+                                <div className="playlist-music__list__item__options__item"
+                                    onClick={(e)=>{
+                                        e.stopPropagation();
+                                        navigate(`/song/${findElement(e)}`)
+                                    }}
+                                >
+                                    <i className="fas fa-directions"></i><span>Nhấn vào đây để xem chi tiết bài hát</span>
+                                </div>
                             </div>
                         </li>
                     ))

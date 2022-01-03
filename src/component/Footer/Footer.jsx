@@ -41,7 +41,7 @@ function Footer() {
                 <ul className="footer-contact__support">
                     {support.map((item,index)=>(
                     <li className="footer-contact__support__item" key={index}>
-                        <Link to={item.href}>{item.title}</Link>
+                        <Link to={item.href} rel="noopener noreferrer">{item.title}</Link>
                     </li>))}
                 </ul>
                 <ul className="footer-contact__social">

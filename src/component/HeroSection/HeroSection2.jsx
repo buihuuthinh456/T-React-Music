@@ -59,7 +59,7 @@ function HeroSection2(props) {
             <div className="slider-wrapper">
                 {
                     heroSlide.map((item,index)=>
-                    (<Link to={`/playlist/${item.key}`} key={index} className={`slider-item ${ index===slider ? 'active' : ''}`} style={{backgroundImage:`url(${item.thumbnail})`}} />))
+                    (<Link to={`/topic/${item.key}`} key={index} className={`slider-item ${ index===slider ? 'active' : ''}`} style={{backgroundImage:`url(${item.thumbnail})`}} />))
                     //  heroSlide.map((item,index)=>
                     // (<img key={index} className={`slider-item ${ index===slider ? 'active' : ''}`} src={item.thumbnail} alt={item.title} />))
                 }
@@ -67,7 +67,7 @@ function HeroSection2(props) {
             <div className="dot-wrapper">
                 {
                     heroSlide.map((item,index)=>(
-                        <span onClick={(e)=> clickDot(e.target)}  key={index} data-index={index} className={`dot ${ index===slider ? 'active' : ''}`}></span>
+                        <span onClick={(e)=> clickDot(e.target)}  key={item.key} data-index={index} className={`dot ${ index===slider ? 'active' : ''}`}></span>
                     ))
                 }
             </div>

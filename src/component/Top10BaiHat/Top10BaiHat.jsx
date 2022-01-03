@@ -1,10 +1,12 @@
 import React from 'react'
 import {useDispatch} from 'react-redux'
 import {setSelectSong} from '../../redux/actions/playlistDetailAction'
+import { useNavigate } from 'react-router-dom'
 
 import './Top10BaiHat.scss'
 function Top10BaiHat(props) {
     const data = props.data
+    const navigate = useNavigate()
     const dispatch = useDispatch();
     function findElement(e){
         const element = e.target
@@ -50,7 +52,14 @@ function Top10BaiHat(props) {
                                     <span>{item.statusViewValue}</span>
                                 </div>
                                 <div className="top10-baihat-content__list__item__options">
-                                    <i className="fas fa-ellipsis-v"></i>
+                                    <div className="top10-baihat-content__list__item__options__item"
+                                        onClick={(e)=>{
+                                            e.stopPropagation();
+                                            navigate(`/song/${findElement(e)}`)
+                                        }}
+                                    >
+                                        <i className="fas fa-directions"></i>
+                                    </div>
                                 </div>
                             </li>
                         ))}

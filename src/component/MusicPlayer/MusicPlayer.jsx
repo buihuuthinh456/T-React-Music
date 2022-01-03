@@ -29,7 +29,7 @@ function MusicPlayer() {
     useEffect(()=>{
         const fetchSong = async ()=>{
             const response = await getSong(keySelectSong)
-            console.log('call-api-song',keySelectSong)
+            // console.log('call-api-song',keySelectSong)
             dispatch(setPlayingSong(response.song))
             dispatch(setPlayingPlaylist(response.song))
             dispatch(removeAddSong())
@@ -50,7 +50,7 @@ function MusicPlayer() {
     useEffect(()=>{
         const fetchAddSong = async ()=>{
             const response = await getSong(keyAddSong)
-            console.log('call-api-addSong',keyAddSong)
+            // console.log('call-api-addSong',keyAddSong)
             if(typeof response.song !== 'undefined')
             {
                 dispatch(setPlayingPlaylist(response.song))
@@ -61,7 +61,7 @@ function MusicPlayer() {
             }
             else{
                 dispatch(removeAddSong())
-                console.log('Bài hát này đã bị lỗi')
+                // console.log('Bài hát này đã bị lỗi')
             }
             
         }
@@ -78,7 +78,7 @@ function MusicPlayer() {
     } 
     return (
         <div className="music-player-container" >
-            {console.log('re-render')}
+            {/* {console.log('re-render')} */}
             <div className="music-player-content">
                 {
                     !showPlayingList === true

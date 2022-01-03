@@ -21,7 +21,7 @@ function Home() {
     useEffect(()=>{
         const fetchHome = async ()=>{
             const reponse = await getHome()
-            console.log('call-api-home')
+            // console.log('call-api-home')
             dispatch(setHome(reponse))
         }
         fetchHome()
@@ -29,7 +29,7 @@ function Home() {
     useEffect( ()=>{
         window.scrollTo(0,0)
     },[])
-    console.log(data)
+    // console.log(data)
     if(data.length <= 0) return <ContentLoading/>
     return (
         <div className="home">

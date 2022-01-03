@@ -26,7 +26,7 @@ function PlayListDetail() {
     useEffect(()=>{
         const fetchPlaylistDetail = async ()=>{
             const reponse = await getPlaylistDetail(playlistID)
-            console.log('call-api',playlistID)
+            // console.log('call-api',playlistID)
             dispatch(setPlaylistDetail(reponse))
         }
         
@@ -40,7 +40,7 @@ function PlayListDetail() {
         window.scrollTo(0,0)
     },[])
 
-    console.log(data)
+    // console.log(data)
 
 
     if(data.length <= 0) {

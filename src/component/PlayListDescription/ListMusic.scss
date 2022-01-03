@@ -13,7 +13,7 @@
         display:flex;
         flex-direction: column;
         width: 100%;
-        
+        font-size: 0.9rem;
         &__item{
             cursor: pointer;
             display:flex;
@@ -26,6 +26,7 @@
             &__name{
                 flex:3;
                 padding:0 24px;
+               
             }
             &__singer{
                 flex:3;
@@ -44,15 +45,40 @@
                 text-align: center;
                 color:$text-color-second;
             }
-            &__add{
-                max-width: 30px;
+            &__options{
+                width:50px;
                 text-align: center;
-                color:$text-color-second;
-                i{
-                    font-size: 1.4rem;
-                }
-                &:hover{
-                    color:$main-color;
+                display:flex;
+                justify-content: center;
+              
+                // flex-direction: column;
+                &__item{
+                    color:$text-color-second;
+                    margin-right: 8px;
+                    position: relative;
+                    flex:1;
+                    i{
+                        font-size: 1rem;
+                    }
+                    span{
+                        display:none;
+                        position: absolute;
+                        border-radius: 4px;
+                        top:50%;
+                        right:0;
+                        width:100px;
+                        padding:4px;
+                        z-index: 99;
+                        transform:translateX(calc(100% + 5px))
+                    }
+                    &:hover{
+                        color:$main-color;
+                        span{
+                            display:block;
+                            color:$main-color;
+                            background-color:#fff;
+                        }
+                    }
                 }
             }
             &:hover{
@@ -69,26 +95,22 @@
             padding:6px 12px;
             margin-bottom: 8px;
             .playlist-music__list__item__name{
-                flex:3;
-                padding-left: 24px;
+                
                 color:inherit;
             }
             .playlist-music__list__item__singer{
-                flex:3;
-                padding-left: 24px;
+                
                 color:inherit;
 
             }
             .playlist-music__list__item__views{
-                flex:1;
-                padding-left: 24px;
+                
                 text-align: center;
                 color:inherit;
 
             }
             .playlist-music__list__item__duration{
-                flex:1;
-                padding-left: 24px;
+                
                 text-align: center;
                 color:inherit;
 

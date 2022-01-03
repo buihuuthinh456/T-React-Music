@@ -6,7 +6,6 @@ import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 
 import SwiperCore, { Navigation, Pagination, A11y } from "swiper";
 import { SwiperSlide,Swiper } from 'swiper/react';
-import { Link } from 'react-router-dom'
 
 import './CardList.scss'
 import Card from '../Card/Card'

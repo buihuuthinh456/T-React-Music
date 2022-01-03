@@ -59,15 +59,18 @@ function Explore() {
         }
         fetchExplore()
     },[page])
+    useEffect( ()=>{
+        window.scrollTo(0,0);
+    },[])
 
     if(exploreData.length===0) return <ContentLoading/>
 
     return (
         <div className="explore">
-            {console.log('re-render')}
+            {/* {console.log('re-render')} */}
             <div className="explore-container">
                 <div className="explore-title">
-                    <h3>EXPLORE MUSIC WORLD</h3>
+                    <h3>KHÁM PHÁ THẾ GIỚI ÂM NHẠC</h3>
                 </div>
                 <nav className="explore-options">
                     {nav.map((item,index)=>(

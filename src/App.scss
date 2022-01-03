@@ -9,9 +9,7 @@
   margin: 0;
   box-sizing: border-box;
 }
-.card-container{
-  // padding:0 36px;
-}
+
 .playlist-detail-container{
   min-height:2000px;
   width:100%;
@@ -106,5 +104,9 @@ img{
 .container{
   width:100%;
   padding:24px 36px;
+}
+
+.container--fix{
+  min-height: 100vh;
 }
 

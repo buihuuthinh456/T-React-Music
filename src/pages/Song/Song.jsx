@@ -52,11 +52,6 @@ function Song() {
         
     },[songID])
 
-    useEffect(()=>{
-        console.log(song)
-        console.log(lyric)
-        
-    },[song,lyric])
 
     if(song.length===0) return <ContentLoading/>
     
@@ -67,7 +62,7 @@ function Song() {
             <div className="song-lyric">
                 <h3 className="song-lyric__title">Lời bài hát</h3>
                 <p className="song-lyric__content" ref={lyricContent} >
-                     {lyric.length!==0&&renderLyric(lyric.lyric)}
+                     {(lyric.length!==0 && lyric.lyric.length!==0)?renderLyric(lyric.lyric):'Chưa có dữ liệu'}
                 </p>
                 <div className="song-lyric__btns">
                     <Button 
@@ -86,7 +81,12 @@ function Song() {
                     <Button 
                         className='btn-small'
                         onClick={()=>{
-                            dispatch(setPlayingSong(song))
+                            if(song.streamUrls.length===0){
+                                alert('Bài hát này không được hỗ trợ. Vì nhaccuatui giấu link mp3. I am sorry :D')
+                            }
+                            else{
+                                dispatch(setPlayingSong(song))
+                            }
                         }}
                     >Phát bài nhạc này</Button>
                 </div>
