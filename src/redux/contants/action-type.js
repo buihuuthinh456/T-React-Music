@@ -19,4 +19,7 @@ export const ActionTypes = {
     // EXPLORE
     SET_EXPLORE:"SET_EXPLORE",
     ADD_EXPLORE:"ADD_EXPLORE",
+    // SONG PAGE
+    SET_SONG:"SET_SONG",
+    SET_SONG_LYRIC:"SET_SONG_LYRIC",
 }

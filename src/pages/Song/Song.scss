@@ -1,0 +1,25 @@
+@use '../../scss/' as *;
+
+.song-lyric{
+    margin-top: 12px;
+    margin-bottom: 24px;
+    &__title{
+        font-size:1.4rem;
+    }
+    &__content{
+        font-size:0.9rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 10; /* number of lines to show */
+                line-clamp: 10; 
+        -webkit-box-orient: vertical;
+        margin-bottom: 12px;
+    }
+    &__btns{
+        display:flex;
+        Button{
+            margin-right:12px;
+        }
+    }
+}
