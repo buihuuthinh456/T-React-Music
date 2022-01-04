@@ -11,7 +11,7 @@
 }
 
 .playlist-detail-container{
-  min-height:2000px;
+  min-height:100vh;
   width:100%;
   padding:36px;
 }
@@ -46,6 +46,10 @@ body{
   // margin-right: $music-player-width;
   padding-left: $navbar-width ;
   padding-right: $music-player-width;
+  @include mobile{
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 @include minipc{
@@ -85,18 +89,20 @@ img{
   flex-wrap: wrap;
   .column-4{
     width: 33.3%;
-    
+  }
+  .column-3{
+    width: 25%;
   }
 }
 .row.distance-4{
   margin:0 -4px;
-  .column-4{
+  .column-4,.column-3{
     padding: 4px;
   }
 }
 .row.distance-8{
   margin:0 -8px;
-  .column-4{
+  .column-4,.column-3{
     padding: 8px;
   }
 }

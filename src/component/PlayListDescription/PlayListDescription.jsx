@@ -25,9 +25,10 @@ function PlayListDescription(props) {
                             </div>
                         ))}
                     </div>
+                    {data.dateModify&&
                     <div className="playlist-detail__information__datemodify" >
                         {data.dateModify}
-                    </div> 
+                    </div> }
                     {data.uploadBy&&
                     (<div className="playlist-detail__information__uploadby" >
                         <div className="playlist-detail__information__uploadby__avatar">

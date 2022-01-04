@@ -10,6 +10,10 @@
         justify-content: space-between;
         position: relative;
         padding-bottom:24px;
+        @include mobile{
+            flex-direction: column;
+            padding-bottom: 0;
+        }
         &::after{
             content:"";
             position:absolute;
@@ -21,25 +25,52 @@
         &__support{
             display:flex;
             align-items: center;
+            @include mobile{
+                flex:1;
+                justify-content: space-between;
+                margin-bottom: 12px;
+            }
             &__item{
                 font-size:1rem;
                 padding: 0 12px;
-
+                @include minipc{
+                    font-size:0.9rem;
+                }
+                @include mobile{
+                    font-size:1.2rem;
+                    text-decoration: underline;
+                }
                 &:nth-child(n+1){
                     border-right: 1px solid $border-color;
+                    @include mobile{
+                        border:none;
+                    }
                 }
             }
         }
         &__social{
             display:flex;
             align-items: center;
+            @include mobile{
+                flex:1;
+            }
+            @include mobile{
+                flex:1;
+                justify-content: space-between;
+                margin-bottom: 12px;
+            }
             &__item{
                 font-size:1.5rem;
                 padding:0 12px;
+                @include mobile{
+                    font-size:2rem;
+                }
                 &:nth-child(1),&:nth-child(2){
                     border-right: 1px solid $border-color;
+                    @include mobile{
+                        border:none;
+                    }
                 }
-
             }
         }
     }
@@ -51,6 +82,12 @@
         align-items: center;
         justify-content: space-between;
         border-bottom: 1px solid $border-color;
+        @include minipc{
+            flex-direction: column;
+            &__item{
+                margin-top: 4px;
+            }
+        }
         &__item{
             display:flex;
             align-items: center;
@@ -68,5 +105,8 @@
         color:$text-color-second;
         text-align: center;
         padding:12px 0;
+        @include mobile{
+            font-size:1.2rem;
+        }
     }
 }

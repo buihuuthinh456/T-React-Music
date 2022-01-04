@@ -12,6 +12,10 @@ import { exploreReducer } from "./exploreReducer";
 
 import { songPageReducer } from './songPageReducer'
 
+import {topicReducer} from './topicReducer'
+
+import {videoReducer} from './videoReducer'
+
 const reducers = combineReducers({
     dataHome:homeReducer,
     playlistDetail:playlistReducer,
@@ -19,6 +23,8 @@ const reducers = combineReducers({
     search:searchReducer,
     explore:exploreReducer,
     songPage:songPageReducer,
+    topicPage:topicReducer,
+    videoPage:videoReducer,
 })
 
 export default reducers

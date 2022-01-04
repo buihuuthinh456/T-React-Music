@@ -1,0 +1,12 @@
+@use '../../scss/' as *;
+
+.thumbnail{
+    width:100%;
+    // max-height:480px;
+}
+.video-container{
+    min-height: 100vh;
+}
+.video-infor{
+    margin-top:24px;
+}

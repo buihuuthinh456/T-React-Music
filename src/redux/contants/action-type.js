@@ -22,4 +22,11 @@ export const ActionTypes = {
     // SONG PAGE
     SET_SONG:"SET_SONG",
     SET_SONG_LYRIC:"SET_SONG_LYRIC",
+
+    // TOPIC PAGE
+    SET_TOPIC:"SET_TOPIC",
+
+
+    // VIDEO/MV PAGE
+    SET_VIDEO:"SET_VIDEO",
 }

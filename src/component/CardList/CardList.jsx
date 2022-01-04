@@ -15,6 +15,7 @@ SwiperCore.use([Navigation, Pagination, A11y]);
 
 function CardList(props) {
     const list = props.listPlaylist
+    const type = props.type||''
     const swipper = useRef()
     return (
         <div className="card-list">
@@ -27,12 +28,12 @@ function CardList(props) {
                 className={"swipper"}
                 spaceBetween={10}
                 slidesPerView={'auto'}
-                slidesPerGroup={4}
+                slidesPerGroup={2}
             >
                 {
                     list.map((item,i)=>(
                         <SwiperSlide key={i}>
-                            <Card thumbnail={item.thumbnail} title={item.title} dataKey={item.key} type='playlist' />
+                            <Card thumbnail={item.thumbnail||item.thumbURL} title={item.title} dataKey={item.key} type={type} />
                         </SwiperSlide>
                     ))
                 }

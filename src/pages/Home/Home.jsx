@@ -29,7 +29,7 @@ function Home() {
     useEffect( ()=>{
         window.scrollTo(0,0)
     },[])
-    // console.log(data)
+    console.log(data)
     if(data.length <= 0) return <ContentLoading/>
     return (
         <div className="home">
@@ -37,11 +37,19 @@ function Home() {
             <div className="card-container">
                 {
                     typeof data === 'object' ?  data.topicEvent.map((item,index)=>(
-                            <CardList name={item.groupName.split('_')[0]} listPlaylist={item.listPlaylist} key={index}  />
+                            <CardList name={item.groupName.split('_')[0]} listPlaylist={item.listPlaylist} key={index} type="playlist"  />
                     )):'Loading'
+                }
+                {
+                    typeof data === 'object' && <CardList name='Chủ đề nổi bật' listPlaylist={data.topic} type="topic" />
+                    
                 }
             </div>
             <Top10BaiHat data={data.song}/>
+            {
+                    typeof data === 'object' && <CardList name='Video/MV' listPlaylist={data.video} type="mv" />
+                    
+            }
         </div>
     )
 
