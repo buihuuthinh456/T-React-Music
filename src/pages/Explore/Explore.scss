@@ -41,10 +41,11 @@
             }
             a{
                 text-align: center;
-				min-width:50px;
+				min-width:100px;
                 @include mobile{
                     width: 100%;
                     font-size:1.2rem;
+					min-width:unset;
                 }
             }
             &::before{
