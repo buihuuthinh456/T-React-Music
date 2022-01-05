@@ -23,7 +23,12 @@ function Home() {
         const fetchHome = async ()=>{
             const reponse = await getHome()
             console.log('call-api-home')
-            dispatch(setHome(reponse))
+            if(reponse.status === 'error'){
+                fetchHome()
+            }
+            else{
+                dispatch(setHome(reponse))
+            }
         }
         fetchHome()
     },[dispatch])
