@@ -41,6 +41,7 @@
             }
             a{
                 text-align: center;
+				min-width:50px;
                 @include mobile{
                     width: 100%;
                     font-size:1.2rem;
