@@ -17,11 +17,12 @@ import './Home.scss'
 function Home() {
     const dispatch = useDispatch();
     const data = useSelector((state)=>state.dataHome.home)
+
     
     useEffect(()=>{
         const fetchHome = async ()=>{
             const reponse = await getHome()
-            // console.log('call-api-home')
+            console.log('call-api-home')
             dispatch(setHome(reponse))
         }
         fetchHome()
@@ -29,8 +30,11 @@ function Home() {
     useEffect( ()=>{
         window.scrollTo(0,0)
     },[])
+
     console.log(data)
     if(data.length <= 0) return <ContentLoading/>
+    if(typeof data==='string') return <div className='home'>
+        Vì vấn đề về CORS. Bạn hãy bật devtool và tắt disable cache đi. Cảm ơn bạn .</div>
     return (
         <div className="home">
             <HeroSection2 heroSlide={typeof data==='object'?data.showcase:[]} />

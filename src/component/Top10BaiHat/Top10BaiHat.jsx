@@ -13,8 +13,9 @@ function Top10BaiHat(props) {
         const key = element.closest('.top10-baihat-content__list__item').getAttribute('data-key')
         return key
     }
+    console.log(data)
     
-    if(data.length===0 || !data){
+    if(typeof data==='undefined'||data.length===0 || !data){
         return(
             <div>Không có dữ liệu</div>
         )
