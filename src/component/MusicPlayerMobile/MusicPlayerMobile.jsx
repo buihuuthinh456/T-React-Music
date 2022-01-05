@@ -8,14 +8,14 @@ import {useDispatch} from 'react-redux'
 import {setPlayingSong, setPlayingPlaylist} from '../../redux/actions/musicAction'
 import { removeAddSong,removeSelectSong } from '../../redux/actions/playlistDetailAction'
 
+import Audio from '../../component/MusicPlayer/Audio/Audio'
 
-import Audio from './Audio/Audio'
-import MusicPlaying from './MusicPlaying/MusicPlaying'
-import MusicPlayingPlayList from './MusicPlayingPlayList/MusicPlayingPlayList'
+import MusicPlayingPlayList from '../MusicPlayer/MusicPlayingPlayList/MusicPlayingPlayList'
 
-import './MusicPlayer.scss'
+import './MusicPlayerMobile.scss'
 
-function MusicPlayer() {
+function MusicPlayerMobile() {
+
     const keySelectSong = useSelector((state)=>state.playlistDetail.selectSong)
     const keyAddSong = useSelector((state)=>state.playlistDetail.addSong)
     const playingSong = useSelector((state)=>state.musicPlayer.playingSong);
@@ -71,28 +71,28 @@ function MusicPlayer() {
     },[keyAddSong])
     if(playingSong.length <= 0){
         return (
-            <div className="music-player-container">
+            <div className="music-player-mobile">
                 Chưa chọn bài hát
             </div>
         )
-    } 
+    }
+
     return (
-        <div className="music-player-container" >
-            {/* {console.log('re-render')} */}
-            <div className="music-player-content">
-                {
-                    !showPlayingList === true
-                    ?<MusicPlaying />
-                    :<MusicPlayingPlayList />
-                }
-            </div>
+        <div className="music-player-mobile">
+            {!showPlayingList === true
+                ?''
+                :<div className="music-player-mobile__playing-playlist-content">   
+                    <MusicPlayingPlayList />
+                </div>
+            }
+            
             <button 
-                className="music-player-change-state"
+                className="music-player-mobile-change-state"
                 onClick={()=>setShowPlayingList(!showPlayingList)}
-            >{showPlayingList===true?'Đang phát':'Danh sách phát'}</button>
-            <Audio />
+            >{showPlayingList===true?'Mở danh sách phát':'Đóng danh sách phát'}</button>
+            <Audio/>
         </div>
     )
 }
 
-export default MusicPlayer
+export default MusicPlayerMobile 

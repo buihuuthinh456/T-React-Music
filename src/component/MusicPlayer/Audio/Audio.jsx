@@ -2,8 +2,9 @@ import React,{useRef,useEffect,useState} from 'react'
 
 import {useSelector,useDispatch} from 'react-redux'
 
-
 import {nextSong,prevSong,setPlayingSong } from '../../../redux/actions/musicAction'
+
+import './Audio.scss'
 
 function Audio(){
     
@@ -110,6 +111,7 @@ function Audio(){
     }
     useEffect(()=>{
         handle.start()
+        console.log(handle.isPlaying)
     },[playingPlaylist.length,playingSong.key,handle.isRepeat,handle.isRandom,handle])
     useEffect(()=>{
         audio.current.play();
@@ -166,6 +168,7 @@ function Audio(){
                         if(audio.current.currentSrc){
                             if(handle.isPlaying){
                                 audio.current.pause();
+                                console.log(handle.isPlaying)
                             }
                             else{
                                 audio.current.play();

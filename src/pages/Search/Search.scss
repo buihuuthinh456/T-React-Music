@@ -7,6 +7,9 @@
 .search-container{
     width:100%;
     padding:36px;
+    @include mobile{
+        padding:0;
+    }
 }
 .search-header{
     display: flex;
@@ -22,6 +25,11 @@
         background-color: $bg-second;
         color:$txt-color;
         padding:0 12px;
+
+        @include mobile{
+            width:200px;
+            height:30px;
+        }
     }
 
     &__submit{

@@ -22,7 +22,7 @@ function SearchResult() {
         <div className="search-result">
             {console.log('re-render')}
             <div className="card-container">
-                <CardList name={'Playlist đề xuất'} listPlaylist={resultPlaylist}/>
+                <CardList name={'Playlist đề xuất'} listPlaylist={resultPlaylist} type='playlist'/>
             </div>
         </div>
     )

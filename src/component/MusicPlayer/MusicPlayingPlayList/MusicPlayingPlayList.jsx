@@ -4,6 +4,7 @@ import {useDispatch} from 'react-redux'
 import {setPlayingSong,slicePlayingPlaylist} from '../../../redux/actions/musicAction'
 import {useSelector} from 'react-redux'
 
+import './MusicPlayingPlayList.scss'
 
 function MusicPlayingPlayList() {
     const playingSong = useSelector((state)=>state.musicPlayer.playingSong);

@@ -26,13 +26,25 @@
     &-options{
         display:flex;
         margin-top: 24px;
+        @include mobile{
+            width: 100%;
+            justify-content: center;
+        }
         &__item{
             display: flex;
             align-items: center;
             position: relative;
+            flex:1;
             margin:0 32px;
+            @include mobile{
+                margin:0 8px;
+            }
             a{
                 text-align: center;
+                @include mobile{
+                    width: 100%;
+                    font-size:1.2rem;
+                }
             }
             &::before{
                 content:"";

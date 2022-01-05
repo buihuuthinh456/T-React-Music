@@ -1,0 +1,89 @@
+@use '../../../scss/' as *;
+
+
+.music-player-playlist{
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    max-height: 60vh;
+    overflow-x:unset;
+    overflow-y: scroll;
+    &::-webkit-scrollbar{
+        display:none;
+    }
+    
+    &__playing:nth-child(1){
+        margin-bottom: 24px;
+        background-color: $main-color;
+        border-radius: 4px;
+        &:hover{
+            background-color: $main-color;
+            opacity: 0.8;
+        }
+    }
+    &__playing{
+        display:flex;
+        width: 100%;
+        align-items: center;
+        padding:12px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        &:hover{
+            background-color:$bg-tag;
+        }
+        &__img{
+            width: 100%;
+            max-width:50px;
+            margin-right: 12px;
+            display:flex;
+            align-items: center;
+            img{
+                width: 100%;
+                border-radius:4px;
+            }
+        }
+
+        &__text{
+            display:flex;
+            flex-direction: column;
+            flex:1;
+            &__title{
+                flex:1;
+                justify-self: flex-start;
+                max-height: 1.4rem;
+                line-height: 1.4rem;
+                overflow: hidden;
+                text-overflow: clip;
+                display: -webkit-box;
+                -webkit-line-clamp: 1; /* number of lines to show */
+                        line-clamp: 1; 
+                -webkit-box-orient: vertical;
+                word-wrap: break-word;
+            }
+            &__singer{
+                margin-top: 4px;
+                display:flex;
+                flex:1;
+                max-height: 1.4rem;
+                line-height: 1.4rem;
+                overflow: hidden;
+                text-overflow: clip;
+                display: -webkit-box;
+                -webkit-line-clamp: 1; /* number of lines to show */
+                        line-clamp: 1; 
+                -webkit-box-orient: vertical;
+                word-wrap: break-word;
+            }
+        }
+        &__options{
+            display:flex;
+            justify-self: flex-end;
+            &__item{
+                font-size: 1.1rem;
+            }
+            &__item:hover{
+                color:$main-color;
+            }
+        }
+    }
+}

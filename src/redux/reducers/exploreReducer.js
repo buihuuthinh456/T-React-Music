@@ -7,7 +7,14 @@ const initialState = {
 export const exploreReducer = (state = initialState,action)=>{
     switch (action.type){
         case ActionTypes.SET_EXPLORE:
-            return {...state, data:action.payload}
+            {
+                if(action.payload){
+                    return {...state, data:action.payload}
+                }
+                else{
+                    return {...state}
+                }
+            }
         case ActionTypes.ADD_EXPLORE:
             {
                 const data = state.data

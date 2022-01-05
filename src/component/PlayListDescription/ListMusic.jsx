@@ -70,7 +70,7 @@ function ListMusic(props) {
                         
                     </div>
                 </li>
-                {
+                {   data.songs&&
                     data.songs.map((item,index)=>(
                         <li 
                             className="playlist-music__list__item" 

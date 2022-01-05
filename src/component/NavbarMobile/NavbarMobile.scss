@@ -1,0 +1,57 @@
+@use '../../scss/' as *;
+
+.navbar-mobile-container{
+    width: 100%;
+    position:fixed;
+    z-index: 9999;
+    height:$navbar-mobile-height;
+    background-color: $bg-navbar-mobile;
+    display: none;
+    @include mobile{
+        display:block;
+    }
+}
+.navbar-mobile-wrapper{
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:12px;
+    background-color: $bg-navbar-mobile;
+}
+.navbar-logo{
+    width: 50px;
+    img{
+        width:100%;
+    }
+}
+.navbar-btn-show{
+    i{
+        font-size:2rem;
+    }
+}
+.navbar-menu{
+    position: relative;
+    z-index: 99;
+    width: 100%;
+    // min-height:300px;
+    height:0;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+   
+    transition:height 0.3s ease-in-out;
+    background-color: $bg-navbar-mobile;
+    &__item{
+        padding:12px;
+        font-size: 1.8rem;
+        display:none;
+    }
+    &.--active-menu{
+        height: 300px;
+        .navbar-menu__item{
+            display: block;
+            padding:12px 24px;
+        }
+    }
+}

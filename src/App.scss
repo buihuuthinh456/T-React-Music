@@ -49,6 +49,7 @@ body{
   @include mobile{
     padding-left: 0;
     padding-right: 0;
+    padding-top: $navbar-mobile-height;
   }
 }
 
@@ -110,6 +111,9 @@ img{
 .container{
   width:100%;
   padding:24px 36px;
+  @include mobile{
+    min-height: 100vh;
+  }
 }
 
 .container--fix{

@@ -40,7 +40,7 @@ function PlayListDetail() {
         window.scrollTo(0,0)
     },[])
 
-    // console.log(data)
+    console.log(data)
 
 
     if(data.length <= 0) {
