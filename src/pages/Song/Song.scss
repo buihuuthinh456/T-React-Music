@@ -15,6 +15,15 @@
                 line-clamp: 10; 
         -webkit-box-orient: vertical;
         margin-bottom: 12px;
+        @include minipc{
+            font-size:1rem;
+        }
+        @include tablet{
+            font-size:1.1rem;
+        }
+        @include mobile{
+            font-size:1.2rem;
+        }
     }
     &__btns{
         display:flex;
