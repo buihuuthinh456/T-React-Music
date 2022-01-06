@@ -4,9 +4,9 @@
     position:fixed;
     bottom: 0;
     left:0;
-    height:$music-player-mobile-height;
+    min-height:$music-player-mobile-height;
     width:100%;
-    background-color: rgb(85, 72, 72);
+    background-color: rgb(31, 23, 23);
     z-index: 99999;
     align-items: center;
     justify-content:center;
@@ -21,14 +21,17 @@
         z-index: 9999;
         width: 100%;
         height:calc(100vh - $music-player-mobile-height - 55px);
-        background-color: rgb(85, 72, 72);
+        background-color: rgb(31, 23, 23);
     }
+}
+.music-player-mobile__playing-playlist-content{
+    padding:12px;
 }
 
 .music-player-mobile-change-state{
     font-size:1rem;
     background-color: rgba(0,0,0,0);
-    position: absolute;
+   
     top:5px;
     border:1px solid #333;
     padding:10px 32px;
@@ -37,7 +40,25 @@
     transition:all .3s ease-in-out;
     align-self: center;
     z-index: 99999;
-    font-size:2rem;
+    @include minipc{
+        margin-left: 32px;
+        font-size:1.5rem;
+    }
+    @include tablet{
+        top:3px;
+        font-size:2rem;
+        position: relative;
+        margin-left: 32px;
+    }
+    @include mobile{
+        position: absolute;
+        font-size:2rem;
+        top:8px;
+    }
+    @media only screen and (max-width:320px) {
+        padding:8px 20px;
+        top:10px;
+    }
 }
 .music-player-mobile-change-state:hover{
     border-color:$main-color;

@@ -85,12 +85,11 @@ function MusicPlayerMobile() {
                     <MusicPlayingPlayList />
                 </div>
             }
-            
+            <Audio/>
             <button 
                 className="music-player-mobile-change-state"
                 onClick={()=>setShowPlayingList(!showPlayingList)}
-            >{showPlayingList===true?'Mở danh sách phát':'Đóng danh sách phát'}</button>
-            <Audio/>
+            >{showPlayingList===true?'Đóng danh sách phát':'Mở danh sách phát'}</button>
         </div>
     )
 }

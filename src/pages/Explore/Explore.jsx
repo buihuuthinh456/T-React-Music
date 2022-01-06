@@ -42,7 +42,14 @@ function Explore() {
                 page: 1,
                 pageSize: 24,
               });
-              dispatch(setExplore(data.data))
+            console.log('call api')
+            console.log(data)
+            if(data.data.length!==0){
+                dispatch(setExplore(data.data))
+            }
+            else{
+                dispatch(setExplore('Không có dữ liệu để hiện thị'))
+            }
         }
         setPage(1)
         fetchExplore()    
@@ -55,7 +62,6 @@ function Explore() {
                 page: page,
                 pageSize: 24,
               });
-              dispatch(addExplore(data.data))
         }
         fetchExplore()
     },[page])
@@ -64,6 +70,18 @@ function Explore() {
     },[])
 
     if(exploreData.length===0) return <ContentLoading/>
+    if(typeof exploreData === 'string') 
+    {
+        return (
+        <div className="explore">
+            
+            <div className="explore-container">
+                <div className="explore-title">
+                    <h3>Không có dữ liệu để hiển thị</h3>
+                </div>
+            </div>
+        </div>)
+        }
 
     return (
         <div className="explore">

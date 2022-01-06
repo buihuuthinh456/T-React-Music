@@ -7,7 +7,7 @@ import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props
 
 import InforUser from '../InforUser/InforUser';
 
-import logo from '../../assets/img/logoNhaccuatui.png';
+import logo from '../../assets/img/logo.jpg';
 import Button from '../Button/Button';
 
 
@@ -81,6 +81,7 @@ function NavbarMobile() {
                                 scope="public_profile,user_friends"
                                 callback={responseFacebook}
                                 icon="fa-facebook" 
+                                isMobile={false}
                                 render={renderProps => (
                                     <Button className='btn-medium btn-default' onClick={renderProps.onClick}>ĐĂNG NHẬP FACEBOOK</Button>
                                 )}

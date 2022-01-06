@@ -44,7 +44,7 @@ function MusicPlayingPlayList() {
                     </div>
                 </div>
             </li>
-            <h3>Danh sách phát</h3>
+            <h3 className="music-player-playlist-title">Danh sách phát</h3>
             {playingPlaylist.map((item,index)=>{
                 if(item.key !== playingSong.key){
                     return (

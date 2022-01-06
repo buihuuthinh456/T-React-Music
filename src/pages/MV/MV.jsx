@@ -40,9 +40,6 @@ function MV() {
         window.scrollTo(0,0);
     },[])
 
-    useEffect( ()=>{
-        
-    },[video])
 
     if(video.length===0) return <ContentLoading/>
 

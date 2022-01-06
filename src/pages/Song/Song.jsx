@@ -52,6 +52,10 @@ function Song() {
         
     },[songID])
 
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    },[])
+
 
     if(song.length===0) return <ContentLoading/>
     

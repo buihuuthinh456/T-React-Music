@@ -59,6 +59,9 @@
         @include flex(center,unset);
         &__current{
             color:$text-color-second;
+            @include tablet{
+                font-size:1.4rem;
+            }
         }
         &__progress{
             @include flex(center,unset);
@@ -73,6 +76,9 @@
         }
         &__duration{
             color:$text-color-second;
+            @include tablet{
+                font-size:1.4rem;
+            }
         }
     }
     &__buttons{
