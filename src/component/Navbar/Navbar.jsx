@@ -46,11 +46,11 @@ function Navbar() {
             icon:'fas fa-compass',
             path:'/explore/song'
         },
-        {
-            display:'BXH NCT',
-            path:'/rank',
-            icon:'fas fa-chart-bar'
-        }
+        // {
+        //     display:'BXH NCT',
+        //     path:'/rank',
+        //     icon:'fas fa-chart-bar'
+        // }
     ];
 
     const { pathname } = useLocation();
