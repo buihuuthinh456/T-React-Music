@@ -23,6 +23,26 @@ function MusicPlayer() {
     const [showPlayingList,setShowPlayingList] = useState(false)
     const dispatch = useDispatch();
 
+    useEffect(()=>{
+        const initPlayingSong = {
+            key:"buihuuthinh_InitPlayingSong",
+            title:"Your Smile - Live",
+            thumbnail:'custom',
+            artists:[{
+                name:'Obito'
+            },{
+                name:'HnhNgan'
+            }],
+            streamUrls:[{
+                streamUrl:'custom',
+            }],
+            duration:'3:22',
+        }
+        dispatch(setPlayingSong(initPlayingSong))
+        dispatch(setPlayingPlaylist(initPlayingSong))
+
+        console.log(initPlayingSong)
+    },[])
    
  
 

@@ -36,6 +36,9 @@
 
     &__logo{
         margin-right: 12px;
+        width:100%;
+        display:flex;
+        justify-content: center;
         >a{
             >img{
                 width: 62px;

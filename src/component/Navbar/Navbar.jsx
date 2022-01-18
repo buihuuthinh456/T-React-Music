@@ -65,7 +65,6 @@ function Navbar() {
                             <img src={logo} alt='logo'/>
                         </Link>
                     </div>
-                    <Button className='btn-medium'>NÂNG CẤP</Button>
                 </div>
 
                 <div className="navbar-item navbar-item-login">

@@ -4,6 +4,9 @@ import {useSelector,useDispatch} from 'react-redux'
 
 import {nextSong,prevSong,setPlayingSong } from '../../../redux/actions/musicAction'
 
+import yourSmileMp3 from '../../../assets/music/YourSmileLive.mp3'
+
+
 import './Audio.scss'
 
 function Audio(){
@@ -111,7 +114,6 @@ function Audio(){
     }
     useEffect(()=>{
         handle.start()
-        console.log(handle.isPlaying)
     },[playingPlaylist.length,playingSong.key,handle.isRepeat,handle.isRandom,handle])
     useEffect(()=>{
         audio.current.play();
@@ -124,10 +126,15 @@ function Audio(){
     return(
         <div className="music-player-controls" >
             <audio 
-                src={playingSong.streamUrls.length > 0 ? playingSong.streamUrls[0].streamUrl:''} 
+                src={playingSong.streamUrls.length > 0 && playingSong.streamUrls[0].streamUrl!='custom' 
+                    ?playingSong.streamUrls[0].streamUrl
+                    :playingSong.streamUrls[0].streamUrl=='custom'
+                    ?yourSmileMp3
+                    :''} 
                 ref={audio}
                 className="music-player-controls__audio"
-            ></audio>
+            >
+            </audio>
             <div className="music-player-controls__volume" >
                 <i className="fas fa-volume-up"></i>
                 <div className="music-player-controls__volume__input">

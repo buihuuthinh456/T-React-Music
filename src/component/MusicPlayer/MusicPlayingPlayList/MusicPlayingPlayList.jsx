@@ -4,6 +4,8 @@ import {useDispatch} from 'react-redux'
 import {setPlayingSong,slicePlayingPlaylist} from '../../../redux/actions/musicAction'
 import {useSelector} from 'react-redux'
 
+
+import yourSmileThumnail from '../../../assets/thumnail/YourSmile.jpg'
 import './MusicPlayingPlayList.scss'
 
 function MusicPlayingPlayList() {
@@ -26,7 +28,7 @@ function MusicPlayingPlayList() {
         <ul className="music-player-playlist">
             <li className="music-player-playlist__playing">
                 <div className="music-player-playlist__playing__img">
-                    <img src={playingSong.thumbnail} alt={playingSong.title} />
+                    <img src={playingSong.thumbnail=='custom'?yourSmileThumnail:playingSong.thumbnail} alt={playingSong.title} />
                 </div>
                 <div className="music-player-playlist__playing__text">
                     <div className="music-player-playlist__playing__text__title">
@@ -55,7 +57,7 @@ function MusicPlayingPlayList() {
                             }}
                         >
                             <div className="music-player-playlist__playing__img">
-                                <img src={item.thumbnail} alt={item.title} />
+                                <img src={item.thumbnail=='custom'?yourSmileThumnail:item.thumbnail} alt={item.title} />
                             </div>
                             <div className="music-player-playlist__playing__text">
                                 <div className="music-player-playlist__playing__text__title">

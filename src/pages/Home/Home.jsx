@@ -12,13 +12,13 @@ import Top10BaiHat from '../../component/Top10BaiHat/Top10BaiHat'
 import ContentLoading from '../../component/ContentLoading/ContentLoading'
 
 
+
 import './Home.scss'
 
 function Home() {
     const dispatch = useDispatch();
     const data = useSelector((state)=>state.dataHome.home)
 
-    
     useEffect(()=>{
         const fetchHome = async ()=>{
             const reponse = await getHome()
