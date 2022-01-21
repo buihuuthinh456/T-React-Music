@@ -21,14 +21,15 @@ function Home() {
 
     useEffect(()=>{
         const fetchHome = async ()=>{
-            const reponse = await getHome()
+            const response = await getHome()
             console.log('call-api-home')
-            if(reponse.status === 'error'){
+            if(response.status === 'error'){
                 fetchHome()
             }
             else{
-                dispatch(setHome(reponse))
+                dispatch(setHome(response))
             }
+            // dispatch(setHome(reponse))
         }
         fetchHome()
     },[dispatch])
