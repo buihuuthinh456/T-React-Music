@@ -1,4 +1,5 @@
 @use '../../scss/variable' as *;
+@use '../../scss/mixin' as *;
 .slider-container{
     position: relative;
     margin-bottom: 60px;
@@ -21,6 +22,19 @@
     transition: all 0.5 ease-in-out;
     // object-fit: none;
     // box-shadow: 0 0 5px 5px rgb(213, 227, 235);
+    @include keyframes(fade){
+        0%{
+            transform: translateY(-50px);
+            opacity: 0.5;
+        }
+        100%{
+            transform: translateX(0);
+            opacity: 1;
+
+        }
+    }
+    @include animate(fade,1.2s,linear,0s);
+
     &.active{
         display: block;
       
